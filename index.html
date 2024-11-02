@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram-Inspired Layout</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 60px;
+        }
+
+        /* Header */
+        header {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #dbdbdb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #262626;
+        }
+
+        /* Profile Section */
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 15px;
+            margin-top: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Post Grid */
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 5px;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .post {
+            background-color: #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .post img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 300px;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .like-button {
+            background-color: #ff5252;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            color: #333;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Instagram</h1>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile">
+        <img src="https://images.ottplay.com/images/suresh-krishna-1727281846.jpg?impolicy=ottplay-20210210&width=11000&height=110" alt="Profile Picture">
+        <div class="profile-info">
+            <h2>@georgekutty</h2>
+            <p>Convincing Star</p>
+            <div class="profile-stats">
+                <div><strong>3</strong> posts</div>
+                <div><strong>100k</strong> followers</div>
+                <div><strong>0</strong> following</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Grid -->
+    <section class="post-grid">
+        <!-- Posts -->
+        <div class="post" onclick="openModal('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Sureshkrishna.jpg/330px-Sureshkrishna.jpg')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Sureshkrishna.jpg/330px-Sureshkrishna.jpg" alt="Post Image 1">
+        </div>
+        <div class="post" onclick="openModal('https://keralakaumudi.com/web-news/en/2024/09/NMAN0530524/image/suresh-krishna-dubai-jose.1727103772.webp')">
+            <img src="https://keralakaumudi.com/web-news/en/2024/09/NMAN0530524/image/suresh-krishna-dubai-jose.1727103772.webp" alt="Post Image 2">
+        </div>
+        <div class="post" onclick="openModal('https://upload.wikimedia.org/wikipedia/commons/0/0c/Suresh_10.jpg')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Suresh_10.jpg" alt="Post Image 3">
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal()">×</button>
+            <img id="modalImage" src="" alt="Enlarged Post">
+            <button class="like-button" onclick="likePost()">❤️ Like</button>
+        </div>
+    </div>
+
+    <script>
+        let currentImageSrc;
+
+        function openModal(imageSrc) {
+            currentImageSrc = imageSrc;
+            document.getElementById("modalImage").src = imageSrc;
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        function likePost() {
+            if (currentImageSrc) {
+                const post = document.querySelector(`.post img[src="${currentImageSrc}"]`).parentNode;
+                post.remove();
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
