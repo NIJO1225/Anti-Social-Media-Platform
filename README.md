@@ -46,9 +46,12 @@ For Software:
 ![Screenshot 2024-11-03 065711](https://github.com/user-attachments/assets/b023ea5b-db6f-4cab-ba07-158571cd38e1)
 
 
+
+https://github.com/user-attachments/assets/b4cfd387-d74c-4866-9626-d9a3949d08cb
+
+
 ![Screenshot3](Add screenshot 3 here with proper name)
 *Add caption explaining what this shows*
-
 
 # Schematic & Circuit
 ![Circuit](Add your circuit diagram here)
