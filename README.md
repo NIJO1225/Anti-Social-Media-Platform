@@ -41,11 +41,10 @@ For Software:
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot 2024-11-03 064724](https://github.com/user-attachments/assets/305b9369-6730-4479-826d-fbb60c7c1019)
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot 2024-11-03 065711](https://github.com/user-attachments/assets/b023ea5b-db6f-4cab-ba07-158571cd38e1)
+
 
 ![Screenshot3](Add screenshot 3 here with proper name)
 *Add caption explaining what this shows*
